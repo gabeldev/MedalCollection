@@ -3,11 +3,7 @@
 
 #include <stdio.h>
 
-
-
-
-
-
+Medalhas* Input_dados(Medalhas *dados_iniciais);
 
 
 

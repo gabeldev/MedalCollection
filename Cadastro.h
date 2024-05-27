@@ -13,7 +13,6 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 /*
 Defina uma estrutura Medalha contendo: Código (contador inteiro), Gênero (char),
@@ -23,31 +22,17 @@ Atleta(string), Pais Origem (string), Resultado (?). Deverá permitir cadastrar
 deve aumentar e diminuir dinamicamente;
 */
 
-//Estrutura Enum para representar o gênero
-typedef enum{
-    MASCULINO,
-    FEMININO,
-    OUTRO
-}Genero;
-
-//Estrutura Enum para representar os tipos de medalhas
-typedef enum{
-    GOLD,
-    BRONZE,
-    SILVER
-}tipoMedalha;
-
 //Estrutura Medalha
 typedef struct{
     int contador;
-    Genero genero;
+    char genero;
     char modalidade[50];
     char cidade[50];
     int ano;
-    tipoMedalha gbs;
-    char atleta[50];
-    char origem[50];
+    char gbs;
+    char nome_atleta[50];
+    char pais_origem[50];
     float resultado;
-}Medalha;
+}Medalhas;
 
 #endif
