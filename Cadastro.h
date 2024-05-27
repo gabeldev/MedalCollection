@@ -13,6 +13,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include "tabelas.h"
 
 /*
 Defina uma estrutura Medalha contendo: Código (contador inteiro), Gênero (char),
@@ -34,5 +35,15 @@ typedef struct{
     char pais_origem[50];
     float resultado;
 }Medalhas;
+
+void inserir_medalha(Medalhas *medalha, Dados_tabela *tabela);
+
+void listar_medalhas(Medalhas *medalha, Dados_tabela *tabela);
+
+void pesquisar_medalha(Medalhas *medalha, Dados_tabela *tabela);
+
+void alterar_medalha(Medalhas *medalha, Dados_tabela *tabela);
+
+void excluir_medalha(Medalhas *medalha, Dados_tabela *tabela);
 
 #endif
