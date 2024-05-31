@@ -5,10 +5,4 @@
 
 Medalhas* Input_dados(Medalhas *dados_iniciais);
 
-
-
-
-
-
-
 #endif

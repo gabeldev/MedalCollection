@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "cadastro.h": "c",
-        "tabelas.h": "c"
+        "tabelas.h": "c",
+        "algorithm": "c"
     }
 }

@@ -23,6 +23,22 @@ Atleta(string), Pais Origem (string), Resultado (?). Deverá permitir cadastrar
 deve aumentar e diminuir dinamicamente;
 */
 
+
+//Estrutura Tempo
+typedef struct {
+    float hora;
+    float minuto;
+    float segundo;
+    float milissegundo;
+}Tempo;
+
+//União Resultado
+typedef union {
+    Tempo tempo;
+    float distancia;
+    float pontos;
+}Resultado;
+
 //Estrutura Medalha
 typedef struct{
     int contador;
@@ -33,7 +49,7 @@ typedef struct{
     char gbs;
     char nome_atleta[50];
     char pais_origem[50];
-    float resultado;
+    Resultado resultado;
 }Medalhas;
 
 void inserir_medalha(Medalhas *medalha, Dados_tabela *tabela);
