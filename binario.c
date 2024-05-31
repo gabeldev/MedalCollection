@@ -30,7 +30,7 @@ Medalhas* carregar_binario(int *total_medalhas) {
     if (bin_file == NULL) {
         perror("Erro ao abrir o arquivo");
         *total_medalhas = 0;
-        return NULL;
+        exit(EXIT_FAILURE);
     }//if
 
     fread(total_medalhas, sizeof(int), 1, bin_file);

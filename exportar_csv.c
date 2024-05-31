@@ -10,7 +10,7 @@ void exportar_para_csv(Medalhas *medalhas, int total_medalhas) {
 
     if (csv_file == NULL) {
         perror("Erro ao abrir o arquivo para escrita.\n");
-        exit(1);
+        exit(EXIT_FAILURE);
     }//if
 
     // Cabeçalho do CSV
@@ -31,6 +31,6 @@ void exportar_para_csv(Medalhas *medalhas, int total_medalhas) {
     }//for
 
     fclose(csv_file);
-    
+
     printf("Dados exportados com sucesso para %s\n", filename);
 }//exportar_para_csv
