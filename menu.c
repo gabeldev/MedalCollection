@@ -4,10 +4,11 @@
 #include "cadastro.h"
 #include "exportar_csv.h"
 
-void menu(Medalhas *medalhas, int *num_medalhas) {
+void menu(Medalhas *medalhas, int *total_medalhas) {
     int opcao;
 
     do {
+        printf("\nBem-vindo ao Sistema de Gerenciamento de Medalhas\n");
         printf("\n======== MENU ========\n");
         printf("1. Inserir Medalha\n");
         printf("2. Listar Medalhas\n");
@@ -22,25 +23,25 @@ void menu(Medalhas *medalhas, int *num_medalhas) {
 
         switch (opcao) {
             case 1:
-                inserir_medalha(medalhas, num_medalhas);
+                inserir_medalha(medalhas, *total_medalhas);
                 break;
             case 2:
-                listar_medalhas(medalhas, *num_medalhas);
+                listar_medalhas(medalhas, *total_medalhas);
                 break;
             case 3:
-                buscar_medalha(medalhas, *num_medalhas);
+                buscar_medalha(medalhas, *total_medalhas);
                 break;
             case 4:
-                alterar_medalha(medalhas, *num_medalhas);
+                alterar_medalha(medalhas, *total_medalhas);
                 break;
             case 5:
-                excluir_medalha(medalhas, *num_medalhas);
+                excluir_medalha(medalhas, *total_medalhas);
                 break;
             case 6:
-                exportar_csv(medalhas, *num_medalhas);
+                exportar_csv(medalhas, *total_medalhas);
                 break;
             default:
-                printf("Opção inválida!\n");
+                printf("Opção invalida!\n");
                 break;
         }//switch
     } while (opcao != 7);

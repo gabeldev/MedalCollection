@@ -5,6 +5,6 @@
 #include "Cadastro.h"
 
 // Declaração da função de exportação
-void exportar_para_csv(Medalhas *medalhas, int num_medalhas, const char *filename);
+void exportar_para_csv(Medalhas *medalhas, int total_medalhas);
 
 #endif // EXPORTAR_CSV_H

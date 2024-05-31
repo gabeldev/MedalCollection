@@ -1,10 +1,10 @@
-#ifndef ARQUIVOBINARIO_H
-#define ARQUIVOBINARIO_H
+#ifndef BINARIO_H
+#define BINARIO_H
 
-#include <stdio.h>
+#include "Cadastro.h"
 
-// Funções para salvar e carregar os dados
-void salvarMedalhas (char *nomeArquivo, Medalha *medalhas, int quantidade);
-Medalha* carregarMedalhas (char *nomeArquivo, int *quantidade);
+// Function prototypes
+void salvar_binario(Medalhas *medalha, int total_medalhas);
+Medalhas* carregar_binario(int *total_medalhas);
 
-#endif // ARQUIVOBINARIO_H
+#endif // BINARIO_H
