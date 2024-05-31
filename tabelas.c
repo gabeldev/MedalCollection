@@ -15,15 +15,3 @@ void imprime_linhas(const Dados_tabela *tabela) { // Imprime as linhas da tabela
     printf("| %-10s |   %2d   |   %2d    |   %2d    |   %2d  |\n",
            tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
 }
-
-
-
-
-
-
-
-
-
-
-
-
