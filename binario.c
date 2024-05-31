@@ -12,7 +12,7 @@ void salvar_binario(Medalhas *medalha, int total_medalhas) {
     if (bin_file == NULL) {
         perror("Erro ao abrir o arquivo");
         return;
-    }
+    }//if
 
     fwrite(&total_medalhas, sizeof(int), 1, bin_file);
     fwrite(medalha, sizeof(Medalhas), total_medalhas, bin_file);
