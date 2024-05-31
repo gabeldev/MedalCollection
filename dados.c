@@ -22,3 +22,18 @@ Medalhas* Input_dados(Medalhas *dados_iniciais) {
 
     fclose(dados); // Fecha o arquivo ao final
 }
+
+
+int main{
+    Medalhas *dados_iniciais;
+   
+   
+   
+    dados_iniciais = Input_dados(dados_iniciais);
+    
+    
+    
+    
+    
+    
+    return 0;}

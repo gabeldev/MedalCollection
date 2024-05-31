@@ -6,7 +6,8 @@
 typedef struct {
     char pais[30];
     char cidade_realizado[30];
-    int ouro;
+    int edicao;
+    int ouro; 
     int prata;
     int bronze;
     int total;
