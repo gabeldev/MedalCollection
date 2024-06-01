@@ -303,18 +303,132 @@ void converte_tabela(Dados_tabela *tabela, Medalhas *medalha) { // Converte os d
      }
 }
 
-void imprime_cabecalho(const Dados_tabela *tabela) { // Imprime o cabeçalho da tabela
+void imprime_tabela(Dados_tabela *tabela) { // Imprime o cabeçalho da tabela
+    
+    int edicao;
+    int posicao;
+    int total_ouro = 0;
+    int total_prata = 0;
+    int total_bronze = 0;
+
+    printf("Escolha a edição dos jogos olímpicos: ");
+    scanf("%d", &edicao);
+
+    while(edicao < 1 || edicao > 31 || edicao == 6 || edicao == 12 || edicao == 13) {
+        printf("Edição inválida!\n");
+        printf("Obs: As edições 6, 12 e 13 não foram realizadas.\n");
+        printf("Escolha a edição dos jogos olímpicos: ");
+        scanf("%d", &edicao);
+    }
+    
+    for (int i = 0; i < 2395; i++) {
+        if (tabela[i].edicao == edicao) {
+            posicao = i;
+            break;
+        }
+    }
+
     printf("\n\033[1;33m"); // Amarelo em negrito
     printf("--------------------------------------------------------\n");
-    printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉|\n", tabela->edicao, tabela->cidade_realizado); 
+    printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉|\n", tabela[posicao].edicao, tabela[posicao].cidade_realizado); 
     printf("--------------------------------------------------------\n");
     printf("\033[0m");
     printf("\n\033[1;25m"); // Resetar cores
     printf("| PAÍS       | 🥇OURO | 🥈PRATA |🥉BRONZE | TOTAL |\n");
     printf("---------------------------------------------------\n");
+
+    for (int i = 0; i < 2395; i++) {
+        if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Brasil") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Estados Unidos") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "China") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Rússia") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Alemanha") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Japão") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "França") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Reino Unido") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Itália") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Austrália") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Canadá") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Coreia do Sul") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Holanda") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Hungria") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Ucrânia") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Espanha") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Nova Zelândia") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Cuba") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Noruega") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Bulgária") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        } else if (tabela[i].edicao == edicao && strcmp(tabela[i].pais, "Bulgária") == 0) {
+            total_ouro += tabela[i].ouro;
+            total_prata += tabela[i].prata;
+            total_bronze += tabela[i].bronze;
+        }
+    }
+
+
 }
 
-void imprime_linhas(const Dados_tabela *tabela) { // Imprime as linhas da tabela
+void imprime_linhas(Dados_tabela *tabela) { // Imprime as linhas da tabela
     printf("| %-10s |   %2d   |   %2d    |   %2d    |   %2d  |\n",
            tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
 }

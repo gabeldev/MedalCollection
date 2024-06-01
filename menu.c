@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cadastro.h"
+#include "Cadastro.h"
 #include "exportar_csv.h"
 
 void menu(Medalhas *medalhas, int *total_medalhas) {
