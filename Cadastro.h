@@ -48,9 +48,11 @@ typedef struct{
     int ano;
     char gbs;
     char nome_atleta[50];
-    char pais_origem[50];
+    char pais_origem[3];
     Resultado resultado;
 }Medalhas;
+
+char* transformar_minusculo(char *str);
 
 void inserir_medalha(Medalhas *medalha, Dados_tabela *tabela);
 
