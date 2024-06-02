@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "dados.h"
-#include "Cadastro.h"
+#include "cadastro.h"
 
 void Input_dados(Medalhas *dados_iniciais) {
     dados_iniciais = (Medalhas*) malloc(2395 * sizeof(Medalhas)); // Aloca memória para 2395 medalhas

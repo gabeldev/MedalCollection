@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Cadastro.h"
+#include "cadastro.h"
 #include "exportar_csv.h"
 
-void menu(Medalhas *medalhas, int *total_medalhas) {
+void menu(Medalhas *medalhas, Bruto_tabela *total_medalhas) {
     int opcao;
 
     do {
@@ -23,22 +23,22 @@ void menu(Medalhas *medalhas, int *total_medalhas) {
 
         switch (opcao) {
             case 1:
-                inserir_medalha(medalhas, *total_medalhas);
+                inserir_medalha(medalhas, total_medalhas);
                 break;
             case 2:
-                listar_medalhas(medalhas, *total_medalhas);
+                listar_medalhas(medalhas, total_medalhas);
                 break;
             case 3:
-                buscar_medalha(medalhas, *total_medalhas);
+                buscar_medalha(medalhas, total_medalhas);
                 break;
             case 4:
-                alterar_medalha(medalhas, *total_medalhas);
+                alterar_medalha(medalhas, total_medalhas);
                 break;
             case 5:
-                excluir_medalha(medalhas, *total_medalhas);
+                excluir_medalha(medalhas, total_medalhas);
                 break;
             case 6:
-                exportar_csv(medalhas, *total_medalhas);
+                exportar_csv(medalhas, total_medalhas);
                 break;
             default:
                 printf("Opção invalida!\n");

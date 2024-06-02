@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "Cadastro.h"
+#include "cadastro.h"
 #include "tabelas.h"
 
 
@@ -13,13 +13,13 @@ char* transformar_minusculo(char *str) {
 
     strcpy(resultado, str);
 
-    for (int i = 0; resultado[i]; i++) {
+    for (int i = 0; resultado[i]; i++) { // Converte a string para minúsculo
         resultado[i] = tolower((char) resultado[i]);
     }
     return resultado;
 }
 
-void inserir_medalha(Medalhas *medalha, Dados_tabela *tabela) {
+void inserir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Insere uma medalha para um atleta
 
     char nome_atleta[50];
     int contador2 = 0;
@@ -71,7 +71,7 @@ void inserir_medalha(Medalhas *medalha, Dados_tabela *tabela) {
     }//if
 }//inserir_medalha
 
-void listar_medalhas(Medalhas *medalha, Dados_tabela *tabela) { // Lista as medalhas de um atleta
+void listar_medalhas(Medalhas *medalha, Bruto_tabela *tabela) { // Lista as medalhas de um atleta
 
     char nome_atleta[50];
     int contador2 = 0;
@@ -101,7 +101,7 @@ void listar_medalhas(Medalhas *medalha, Dados_tabela *tabela) { // Lista as meda
     }//if
 }//listar_medalhas
 
-void pesquisar_medalha(Medalhas *medalha, Dados_tabela *tabela) { // Pesquisa as medalhas de um atleta
+void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as medalhas de um atleta
 
     char nome_atleta[50];
     int contador2 = 0;
@@ -156,7 +156,7 @@ void pesquisar_medalha(Medalhas *medalha, Dados_tabela *tabela) { // Pesquisa as
     }//if
 }//pesquisar_medalha
 
-void alterar_medalha(Medalhas *medalha, Dados_tabela *tabela) {
+void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma medalha de um atleta
     char nome_atleta[50];
     int contador2 = 0;
     char tipo_medalha;
@@ -168,7 +168,7 @@ void alterar_medalha(Medalhas *medalha, Dados_tabela *tabela) {
     setbuf(stdin, NULL);
 
     for (int i = 0; i < 2395; i++) {
-        if(strcmp(transformar_minusculo(nome_atleta), transformar_minusculo(medalha[i].nome_atleta)) == 0) {
+        if(strcmp(transformar_minusculo(nome_atleta), transformar_minusculo(medalha[i].nome_atleta)) == 0) { // Se o atleta já estiver cadastrado
             printf("Atleta encontrado\n");
             contador2 = 1;
             
@@ -213,17 +213,17 @@ void alterar_medalha(Medalhas *medalha, Dados_tabela *tabela) {
     }//if
 }//alterar_medalha
 
-void excluir_medalha(Medalhas *medalha, Dados_tabela *tabela) {
+void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma medalha de um atleta
     char nome_atleta[50];
     int contador2 = 0;
     char tipo_medalha;
 
-    printf("Digite o nome do atleta a ser excluído: ");
+    printf("Digite o nome do atleta na qual a medalha deve ser excluída: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
     setbuf(stdin, NULL);
 
-    for (int i = 1; i <= 2394; i++) {
+    for (int i = 0; i < 2395; i++) {
         if(strcmp(transformar_minusculo(nome_atleta), transformar_minusculo(medalha[i].nome_atleta)) == 0) {
             printf("Atleta encontrado\n");
             contador2 = 1;

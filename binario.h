@@ -1,7 +1,7 @@
 #ifndef BINARIO_H
 #define BINARIO_H
 
-#include "Cadastro.h"
+#include "cadastro.h"
 
 // Function prototypes
 void salvar_binario(Medalhas *medalha, int total_medalhas);

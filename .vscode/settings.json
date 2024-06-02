@@ -3,6 +3,8 @@
         "stdio.h": "c",
         "cadastro.h": "c",
         "tabelas.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "exportar_csv.h": "c",
+        "binario.h": "c"
     }
 }
