@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "exportar_csv.h"
 
-void exportar_para_csv(Medalhas *medalhas, int total_medalhas) {
+void exportar_para_csv(Medalhas *medalhas, Bruto_tabela *total_medalhas) {
     
     FILE *csv_file;
     char *filename = "medalhas_exportadas.csv";
@@ -16,7 +16,7 @@ void exportar_para_csv(Medalhas *medalhas, int total_medalhas) {
     // Cabeçalho do CSV
     fprintf(csv_file, "Código,Gênero,Modalidade,Cidade,Ano,Tipo Medalha,Nome Atleta,Pais Origem,Resultado\n");
 
-    for (int i = 0; i < total_medalhas; i++) {
+    for (int i = 0; i < 2395; i++) {
         if (medalhas[i].contador != 0) { // Verifica se a medalha existe
             fprintf(csv_file, "%d,%c,%s,%s,%d,%c,%s,%s,",
                     medalhas[i].contador,

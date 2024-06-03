@@ -3,10 +3,11 @@
 #include <string.h>
 
 #include "dados.h"
+#include "structs.h"
 #include "cadastro.h"
 
 void Input_dados(Medalhas *dados_iniciais) {
-    dados_iniciais = (Medalhas*) malloc(2395 * sizeof(Medalhas)); // Aloca memória para 2395 medalhas
+    //dados_iniciais = (Medalhas*) malloc(2395 * sizeof(Medalhas)); // Aloca memória para 2395 medalhas
     FILE *dados; // Ponteiro para o arquivo
     char *filename = "medalhas.csv"; // Nome do arquivo
     char linha[200]; // Buffer para armazenar cada linha do arquivo
@@ -14,11 +15,6 @@ void Input_dados(Medalhas *dados_iniciais) {
     int k = 0; // Contador
 
     dados = fopen(filename, "r"); // Abre o arquivo para leitura 
-
-    if (dados == NULL) { // Verifica se o arquivo foi aberto corretamente
-        perror("Erro ao abrir o arquivo");
-        return EXIT_FAILURE;
-    }
 
     // Lê cada linha do arquivo
     while (fgets(linha, sizeof(linha), dados) != NULL) {
@@ -37,6 +33,7 @@ void Input_dados(Medalhas *dados_iniciais) {
         k++;
     }
 
+    /*
     for (int i = 0; i < k; i++) { // Separa o resultado em tempo e distância
         if ( // Verifica se a modalidade é uma das que possuem tempo como resultado
             strcmp(dados_iniciais[i].modalidade, "10000M Men") == 0 ||
@@ -133,8 +130,6 @@ void Input_dados(Medalhas *dados_iniciais) {
             dados_iniciais[i].resultado.tempo.milissegundo = atof(strtok(NULL, "\0"));
         }
     }
-
-    fclose(dados); // Fecha o arquivo ao final
-    return EXIT_SUCCESS;
+    */
 }
 

@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include "structs.h"
 #include "cadastro.h"
 #include "tabelas.h"
+#include "exportar_csv.h"
 
 
 char* transformar_minusculo(char *str) {
@@ -25,6 +27,7 @@ void inserir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Insere uma me
     int contador2 = 0;
     char tipo_medalha;
 
+    setbuf(stdin, NULL);
     printf("Digite o nome do atleta: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
@@ -77,6 +80,7 @@ void listar_medalhas(Medalhas *medalha, Bruto_tabela *tabela) { // Lista as meda
     int contador2 = 0;
     char tipo_medalha;
 
+    setbuf(stdin, NULL);
     printf("Digite o nome do atleta: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
@@ -107,6 +111,7 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
     int contador2 = 0;
     char tipo_medalha;
 
+    setbuf(stdin, NULL);
     printf("Digite o nome do atleta: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
@@ -162,6 +167,7 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
     char tipo_medalha;
     int altera_medalha;
 
+    setbuf(stdin, NULL);
     printf("Digite o nome do atleta em que a medalha deve ser alterada: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
@@ -181,7 +187,7 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
                 }
             } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
             
-            printf("Digite o novo tipo de medalha: ");
+            printf("Digite a nova quantidade de medalhas: ");
             scanf("%d", &altera_medalha);
             
             switch (tipo_medalha) {
@@ -218,6 +224,7 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
     int contador2 = 0;
     char tipo_medalha;
 
+    setbuf(stdin, NULL);
     printf("Digite o nome do atleta na qual a medalha deve ser excluída: ");
     fgets(nome_atleta, 50, stdin);
     nome_atleta[strcspn(nome_atleta, "\n")] = '\0';
@@ -235,8 +242,18 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
                 if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
                     printf("Tipo de medalha inválido\n");
                 }
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
-            
+                if(tipo_medalha == 'G' && tabela[i].ouro == 0) {
+                    printf("Atleta não possui medalhas de ouro\n");
+                }
+                if(tipo_medalha == 'S' && tabela[i].prata == 0) {
+                    printf("Atleta não possui medalhas de prata\n");
+                }
+                if(tipo_medalha == 'B' && tabela[i].bronze == 0) {
+                    printf("Atleta não possui medalhas de bronze\n");
+                }
+            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B' && 
+                    (tipo_medalha == 'B' && tabela[i].bronze == 0) && (tipo_medalha == 'S' && tabela[i].prata == 0) &&
+                    (tipo_medalha == 'G' && tabela[i].ouro == 0));
             
             switch (tipo_medalha) {
             case 'G':
@@ -263,3 +280,54 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
         printf("Atleta não encontrado\n");
     }//if
 }//excluir_medalha
+
+void menu(Medalhas *medalhas, Bruto_tabela *total_medalhas) {
+    int opcao;
+    printf("\nBem-vindo ao Sistema de Gerenciamento de Medalhas\n");
+
+    do {
+        printf("\n======== MENU ========\n");
+        printf("1. Inserir Medalha\n");
+        printf("2. Listar Medalhas\n");
+        printf("3. Buscar Medalha\n");
+        printf("4. Alterar Medalha\n");
+        printf("5. Excluir Medalha\n");
+        printf("6. Exportar dados para CSV\n");
+        printf("7. Exibir tabela\n");
+        printf("8. Sair\n");
+        printf("======================\n");
+        printf("Escolha uma opção: ");
+        setbuf(stdin, NULL);
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                inserir_medalha(medalhas, total_medalhas);
+                break;
+            case 2:
+                listar_medalhas(medalhas, total_medalhas);
+                break;
+            case 3:
+                pesquisar_medalha(medalhas, total_medalhas);
+                break;
+            case 4:
+                alterar_medalha(medalhas, total_medalhas);
+                break;
+            case 5:
+                excluir_medalha(medalhas, total_medalhas);
+                break;
+            case 6:
+                exportar_para_csv(medalhas, total_medalhas);
+                break;
+            case 7:
+                imprime_tabela(total_medalhas);
+                break;
+            case 8:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção invalida!\n");
+                break;
+        }//switch
+    } while (opcao != 8);
+}//menu

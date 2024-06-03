@@ -1,5 +1,5 @@
 /**
- * @file Cadastro.h
+ * @file cadastro.h
  * @author Elder Nunes (eldernunes@alunos.utfpr.edu.br)
  * @brief 
  * @version 0.1
@@ -11,8 +11,9 @@
 #ifndef CADASTRO_H
 #define CADASTRO_H
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "structs.h"
 #include "tabelas.h"
 
 /*
@@ -24,33 +25,7 @@ deve aumentar e diminuir dinamicamente;
 */
 
 
-//Estrutura Tempo
-typedef struct {
-    float hora;
-    float minuto;
-    float segundo;
-    float milissegundo;
-}Tempo;
 
-//União Resultado
-typedef union {
-    Tempo tempo;
-    float distancia;
-    float pontos;
-}Resultado;
-
-//Estrutura Medalha
-typedef struct{
-    int contador;
-    char genero;
-    char modalidade[50];
-    char cidade[50];
-    int ano;
-    char gbs;
-    char nome_atleta[50];
-    char pais_origem[3];
-    Resultado resultado;
-}Medalhas;
 
 char* transformar_minusculo(char *str);
 
@@ -63,5 +38,7 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela);
 void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela);
 
 void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela);
+
+void menu(Medalhas *medalha, Bruto_tabela *tabela);
 
 #endif

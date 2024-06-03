@@ -1,7 +1,8 @@
 #include <string.h>
 #include <stdio.h>
-#include "tabelas.h"
+#include "structs.h"
 #include "cadastro.h"
+#include "tabelas.h"
 
 
 void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os dados da estrutura Medalhas para a estrutura Dados_tabela
@@ -299,12 +300,17 @@ void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os
 
 }
 
+void imprime_linhas(Tratado_tabela *tabela) { // Imprime as linhas da tabela
+    printf("| %-10s |   %2d   |   %2d    |   %2d    |   %2d  |\n",
+           tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
+}
+
 void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
     
     int edicao;
-    int posicao;
     Tratado_tabela *tabela = (Tratado_tabela*) malloc(150 * sizeof(Tratado_tabela)); // Aloca memória para a tabela tratada
 
+    setbuf(stdin, NULL); // Limpa o buffer do teclado
     printf("Escolha a edição dos jogos olímpicos: ");
     scanf("%d", &edicao);
 
@@ -317,19 +323,19 @@ void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
     
     for (int i = 0; i < 2395; i++) {
         if (converte[i].edicao == edicao) { // Verifica se a edição é a mesma escolhida pelo usuário
-            posicao = i;
+            printf("\n\033[1;33m"); // Amarelo em negrito
+            printf("--------------------------------------------------------\n");
+            printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉|\n", converte[i].edicao, converte[i].cidade_realizado); 
+            printf("--------------------------------------------------------\n");
+            printf("\033[0m"); // Resetar cores
+            printf("\n\033[1;25m"); // Branco padrão em negrito 
+            printf("| PAÍS       | 🥇OURO | 🥈PRATA |🥉BRONZE | TOTAL |\n");
+            printf("---------------------------------------------------\n");
             break;
         }
     }
 
-    printf("\n\033[1;33m"); // Amarelo em negrito
-    printf("--------------------------------------------------------\n");
-    printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉|\n", converte[posicao].edicao, converte[posicao].cidade_realizado); 
-    printf("--------------------------------------------------------\n");
-    printf("\033[0m"); // Resetar cores
-    printf("\n\033[1;25m"); // Branco padrão em negrito 
-    printf("| PAÍS       | 🥇OURO | 🥈PRATA |🥉BRONZE | TOTAL |\n");
-    printf("---------------------------------------------------\n");
+    
 
     for (int i = 0; i < 150; i++) { // Inicializa a tabela
         strcpy(tabela[i].pais, "");
@@ -370,7 +376,3 @@ void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
 
 }
 
-void imprime_linhas(Tratado_tabela *tabela) { // Imprime as linhas da tabela
-    printf("| %-10s |   %2d   |   %2d    |   %2d    |   %2d  |\n",
-           tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
-}

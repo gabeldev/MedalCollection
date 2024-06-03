@@ -2,7 +2,9 @@
 #define DADOS_H
 
 #include <stdio.h>
+#include "structs.h"
+#include "cadastro.h"
 
-Medalhas* Input_dados(Medalhas *dados_iniciais);
+void Input_dados(Medalhas *dados_iniciais);
 
 #endif
