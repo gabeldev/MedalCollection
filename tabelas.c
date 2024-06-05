@@ -28,115 +28,115 @@ void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os
 
         switch (medalha[i].ano) { // Converte o ano para a edição
             case 1896:
-                converte->edicao = 1;
+                converte[i].edicao = 1;
                 break;
             
             case 1900:
-                converte->edicao = 2;
+                converte[i].edicao = 2;
                 break;
 
             case 1904: 
-                converte->edicao = 3;
+                converte[i].edicao = 3;
                 break;
             
             case 1908:
-                converte->edicao = 4;
+                converte[i].edicao = 4;
                 break;
             
             case 1912:  
-                converte->edicao = 5;
+                converte[i].edicao = 5;
                 break;
 
             case 1920:
-                converte->edicao = 7;
+                converte[i].edicao = 7;
                 break;
             
             case 1924:  
-                converte->edicao = 8;
+                converte[i].edicao = 8;
                 break;
             
             case 1928:  
-                converte->edicao = 9;
+                converte[i].edicao = 9;
                 break;
             
             case 1932:
-                converte->edicao = 10;
+                converte[i].edicao = 10;
                 break;
             
             case 1936:
-                converte->edicao = 11;
+                converte[i].edicao = 11;
                 break;
             
             case 1948:
-                converte->edicao = 14;
+                converte[i].edicao = 14;
                 break;
             
             case 1952:
-                converte->edicao = 15;
+                converte[i].edicao = 15;
                 break;
 
             case 1956:
-                converte->edicao = 16;
+                converte[i].edicao = 16;
                 break;
 
             case 1960:
-                converte->edicao = 17;
+                converte[i].edicao = 17;
                 break;
             
             case 1964:
-                converte->edicao = 18;
+                converte[i].edicao = 18;
                 break;
             
             case 1968:
-                converte->edicao = 19;
+                converte[i].edicao = 19;
                 break;
 
             case 1972:
-                converte->edicao = 20;
+                converte[i].edicao = 20;
                 break;
 
             case 1976:
-                converte->edicao = 21;
+                converte[i].edicao = 21;
                 break;
 
             case 1980:
-                converte->edicao = 22;
+                converte[i].edicao = 22;
                 break;
 
             case 1984:
-                converte->edicao = 23;
+                converte[i].edicao = 23;
                 break;
 
             case 1988:
-                converte->edicao = 24;
+                converte[i].edicao = 24;
                 break;
 
             case 1992:
-                converte->edicao = 25;
+                converte[i].edicao = 25;
                 break;
 
             case 1996:
-                converte->edicao = 26;
+                converte[i].edicao = 26;
                 break;
 
             case 2000:
-                converte->edicao = 27;
+                converte[i].edicao = 27;
                 break;
 
             case 2004:
-                converte->edicao = 28;
+                converte[i].edicao = 28;
                 break;
 
             case 2008:
-                converte->edicao = 29;
+                converte[i].edicao = 29;
                 break;
 
             case 2012:
-                converte->edicao = 30;
+                converte[i].edicao = 30;
                 break;
 
             case 2016:
-                converte->edicao = 31;
+                converte[i].edicao = 31;
                 break;
 
             default:
@@ -301,7 +301,7 @@ void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os
 }
 
 void imprime_linhas(Tratado_tabela *tabela) { // Imprime as linhas da tabela
-    printf("| %-10s |   %2d   |   %2d    |   %2d    |   %2d  |\n",
+    printf("| %-15s |   %3d   |   %3d    |   %3d    |   %3d  |\n",
            tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
 }
 
@@ -329,7 +329,7 @@ void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
             printf("--------------------------------------------------------\n");
             printf("\033[0m"); // Resetar cores
             printf("\n\033[1;25m"); // Branco padrão em negrito 
-            printf("| PAÍS       | 🥇OURO | 🥈PRATA |🥉BRONZE | TOTAL |\n");
+            printf("| PAÍS           | 🥇OURO | 🥈PRATA |🥉BRONZE | TOTAL |\n");
             printf("---------------------------------------------------\n");
             break;
         }

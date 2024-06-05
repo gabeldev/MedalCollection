@@ -21,12 +21,9 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    
     Input_dados(dados_iniciais);
     converte_tabela(tabela, dados_iniciais);
     menu(dados_iniciais, tabela);
-
-
 
 
     return EXIT_SUCCESS;

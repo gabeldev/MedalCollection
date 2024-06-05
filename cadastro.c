@@ -51,14 +51,17 @@ void inserir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Insere uma me
             switch (tipo_medalha) { // Adiciona a medalha
             case 'G':
                 tabela[i].ouro++;
+                printf("Medalha inserida com sucesso!\n");
                 break;
             
             case 'S':
                 tabela[i].prata++;
+                printf("Medalha inserida com sucesso!\n");
                 break;
             
             case 'B':
                 tabela[i].bronze++;
+                printf("Medalha inserida com sucesso!\n");
                 break;
 
             default:
@@ -239,46 +242,40 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
                 printf("Ouro - G, Prata - S, Bronze - B\n");
                 printf("Digite o tipo de medalha a ser excluído: ");
                 scanf(" %c", &tipo_medalha);
-                if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
+                
+                if (tipo_medalha == 'G') {
+                    if (tabela[i].ouro > 0) {
+                        tabela[i].ouro--;
+                        printf("Medalha excluída com sucesso!\n");
+                        break;
+                    } else {
+                        printf("Atleta não possui medalhas de ouro\n");
+                    }
+                } else if (tipo_medalha == 'S') {
+                    if (tabela[i].prata > 0) {
+                        tabela[i].prata--;
+                        printf("Medalha excluída com sucesso!\n");
+                    } else {
+                        printf("Atleta não possui medalhas de prata\n");
+                    }
+                } else if (tipo_medalha == 'B') {
+                    if (tabela[i].bronze > 0) {
+                        tabela[i].bronze--;
+                        printf("Medalha excluída com sucesso!\n");
+                    } else {
+                        printf("Atleta não possui medalhas de bronze\n");
+                    }
+                } else {
                     printf("Tipo de medalha inválido\n");
                 }
-                if(tipo_medalha == 'G' && tabela[i].ouro == 0) {
-                    printf("Atleta não possui medalhas de ouro\n");
-                }
-                if(tipo_medalha == 'S' && tabela[i].prata == 0) {
-                    printf("Atleta não possui medalhas de prata\n");
-                }
-                if(tipo_medalha == 'B' && tabela[i].bronze == 0) {
-                    printf("Atleta não possui medalhas de bronze\n");
-                }
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B' && 
-                    (tipo_medalha == 'B' && tabela[i].bronze == 0) && (tipo_medalha == 'S' && tabela[i].prata == 0) &&
-                    (tipo_medalha == 'G' && tabela[i].ouro == 0));
-            
-            switch (tipo_medalha) {
-            case 'G':
-                tabela[i].ouro--;
-                break;
-            
-            case 'S':
-                tabela[i].prata--;
-                break;
-            
-            case 'B':
-                tabela[i].bronze--;
-                break;
-
-            default:
-                break;
-            }//switch
-            
-            break;
-        }//if
-    }//for
+            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
+        }
+    }
 
     if (contador2 == 0) {
         printf("Atleta não encontrado\n");
     }//if
+
 }//excluir_medalha
 
 void menu(Medalhas *medalhas, Bruto_tabela *total_medalhas) {
