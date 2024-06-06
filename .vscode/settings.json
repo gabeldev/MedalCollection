@@ -6,6 +6,7 @@
         "algorithm": "c",
         "exportar_csv.h": "c",
         "binario.h": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "structs.h": "c"
     }
 }

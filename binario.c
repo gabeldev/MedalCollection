@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "structs.h"
+#include "tabelas.h"
 #include "binario.h"
 
 // Função para salvar os dados em um arquivo binário
-void salvar_binario(Medalhas *medalha, int total_medalhas) {
+void salvar_binario(Medalhas *medalha, Bruto_tabela *total_medalhas) {
 
     FILE *bin_file;
     char *filename = "medalhas.bin";
@@ -21,7 +23,7 @@ void salvar_binario(Medalhas *medalha, int total_medalhas) {
 }//salvar_binario
 
 // Função para carregar os dados do arquivo binário
-Medalhas* carregar_binario(int *total_medalhas) {
+Medalhas* carregar_binario(Bruto_tabela *total_medalhas) {
     FILE *bin_file;
     char *filename = "medalhas.bin";
     Medalhas *medalha;
@@ -29,7 +31,6 @@ Medalhas* carregar_binario(int *total_medalhas) {
     bin_file = fopen(filename, "rb");
     if (bin_file == NULL) {
         perror("Erro ao abrir o arquivo");
-        *total_medalhas = 0;
         exit(EXIT_FAILURE);
     }//if
 
