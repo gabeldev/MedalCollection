@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "stdio.h": "c",
         "cadastro.h": "c",
         "tabelas.h": "c",
@@ -7,6 +8,7 @@
         "exportar_csv.h": "c",
         "binario.h": "c",
         "sstream": "c",
-        "structs.h": "c"
+        "structs.h": "c",
+        "stdlib.h": "c"
     }
 }

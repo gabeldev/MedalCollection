@@ -21,6 +21,15 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    FILE* bin_file = fopen("controle.dat", "wb");
+    if(bin_file == NULL){
+        perror("Erro ao abrir o arquivo!\n");
+        return EXIT_FAILURE;
+    }//if
+
+    
+
+
     Input_dados(dados_iniciais);
     converte_tabela(tabela, dados_iniciais);
     menu(dados_iniciais, tabela);

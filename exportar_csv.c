@@ -18,7 +18,7 @@ void exportar_para_csv(Medalhas *medalhas, Bruto_tabela *total_medalhas) {
 
     for (int i = 0; i < 2395; i++) {
         if (medalhas[i].contador != 0) { // Verifica se a medalha existe
-            fprintf(csv_file, "%d,%c,%s,%s,%d,%c,%s,%s,",
+            fprintf(csv_file, "%d,%c,%s,%s,%d,%c,%s,%s,\n",
                     medalhas[i].contador,
                     medalhas[i].genero,
                     medalhas[i].modalidade,
