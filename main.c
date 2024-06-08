@@ -4,6 +4,7 @@
 #include "cadastro.h"
 #include "dados.h"
 #include "tabelas.h"
+#include "binario.h"
 
 int main() {
 
@@ -18,9 +19,23 @@ int main() {
         return EXIT_FAILURE;
     }//if
 
-    Input_dados(dados_iniciais);
-    converte_tabela(tabela, dados_iniciais);
+    // Verifica se existe um arquivo binário para carregar os dados
+    if (binario_existe() != 0) {
+        // Se o arquivo binário existir, carrega os dados do arquivo
+        carregar_binario(dados_iniciais, tabela);
+    } else {
+        // Se o arquivo binário não existir, carrega os dados iniciais
+        Input_dados(dados_iniciais);
+        converte_tabela(tabela, dados_iniciais);
+    }//if else
+
     menu(dados_iniciais, tabela);
+
+    salvar_binario(dados_iniciais, tabela);
+
+    free(dados_iniciais);
+    free(tabela);
+    free(tabela_tratada);
 
     return EXIT_SUCCESS;
 }//main
