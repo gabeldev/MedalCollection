@@ -4,9 +4,6 @@
 #include "cadastro.h"
 #include "dados.h"
 #include "tabelas.h"
-#include "exportar_csv.h"
-#include "binario.h"
-
 
 int main() {
 
@@ -19,21 +16,11 @@ int main() {
     if (dados_iniciais == NULL || tabela == NULL || tabela_tratada == NULL) {
         printf("Erro na alocação de memória\n");
         return EXIT_FAILURE;
-    }
-
-    FILE* bin_file = fopen("controle.dat", "wb");
-    if(bin_file == NULL){
-        perror("Erro ao abrir o arquivo!\n");
-        return EXIT_FAILURE;
     }//if
-
-    
-
 
     Input_dados(dados_iniciais);
     converte_tabela(tabela, dados_iniciais);
     menu(dados_iniciais, tabela);
 
-
     return EXIT_SUCCESS;
-}
+}//main

@@ -1,15 +1,12 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
 #include "structs.h"
 #include "cadastro.h"
 #include "tabelas.h"
 
-
 void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os dados da estrutura Medalhas para a estrutura Dados_tabela
     
-
     for(int i = 0; i < 2395; i++) { // Converte os dados
         strcpy(converte[i].cidade_realizado, medalha[i].cidade);
         converte[i].ano = medalha[i].ano;
@@ -303,7 +300,7 @@ void converte_tabela(Bruto_tabela *converte, Medalhas *medalha) { // Converte os
 }
 
 void imprime_linhas(Tratado_tabela *tabela) { // Imprime as linhas da tabela
-    printf("| %-15s     |   %2d   |   %2d    |   %2d    |   %2d   |\n",
+    printf("| %-15s     |  %4d    |  %4d     |  %4d    |   %2d   |\n",
            tabela->pais, tabela->ouro, tabela->prata, tabela->bronze, tabela->total);
 }
 
@@ -326,18 +323,16 @@ void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
     for (int i = 0; i < 2395; i++) {
         if (converte[i].edicao == edicao) { // Verifica se a edição é a mesma escolhida pelo usuário
             printf("\n\033[1;33m"); // Amarelo em negrito
-            printf("------------------------------------------------------------\n");
-            printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉|\n", converte[i].edicao, converte[i].cidade_realizado); 
-            printf("------------------------------------------------------------\n");
+            printf("------------------------------------------------------------------\n");
+            printf("|🎉 QUADRO DE MEDALHAS OLÍMPICAS - %dº EDIÇÃO - %s 🎉 |\n", converte[i].edicao, converte[i].cidade_realizado); 
+            printf("------------------------------------------------------------------\n");
             printf("\033[0m"); // Resetar cores
             printf("\n\033[1;25m"); // Branco padrão em negrito 
-            printf("| PAÍS                 | 🥇OURO | 🥈PRATA | 🥉BRONZE | TOTAL  |\n"); // Ajuste no espaçamento
-            printf("------------------------------------------------------------\n");
+            printf("| PAÍS               | 🥇OURO | 🥈PRATA |🥉BRONZE|  TOTAL |\n"); // Ajuste no espaçamento
+            printf("------------------------------------------------------------------\n");
             break;
         }
     }
-
-    
 
     for (int i = 0; i < 150; i++) { // Inicializa a tabela
         strcpy(tabela[i].pais, "");
@@ -374,8 +369,7 @@ void imprime_tabela(Bruto_tabela *converte) { // Imprime a tabela de medalhas
             imprime_linhas(&tabela[i]);
         }
     }
-    printf("--------------------------------------------------------------\n"); // Linha final
+    printf("------------------------------------------------------------------\n"); // Linha final
     printf("\033[0m"); // Resetar cores
 
 }
-
