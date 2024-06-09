@@ -13,13 +13,10 @@ typedef struct {
 
 typedef struct {
     char pais[30];
-    char cidade_realizado[30];
-    int edicao;
     int ouro; 
     int prata;
     int bronze;
     int total;
-    int ano;
 }Tratado_tabela;
 
 //Estrutura Tempo
@@ -46,7 +43,8 @@ typedef struct{
     int ano;
     char gbs;
     char nome_atleta[50];
-    char pais_origem[3];
+    char pais_origem[4];
+    char armazena_resultado[50];
     Resultado resultado;
 }Medalhas;
 

@@ -5,11 +5,11 @@
 #include "structs.h"
 #include "cadastro.h"
 
-void converte_tabela(Bruto_tabela *converte,  Medalhas *medalha); // Converte os dados da estrutura Medalhas para a estrutura Dados_tabela
+void converte_tabela(Bruto_tabela *tabela,  Medalhas *medalha); // Converte os dados da estrutura Medalhas para a estrutura Dados_tabela
 
-void imprime_tabela(Bruto_tabela *converte); // Imprime a tabela
+void imprime_tabela(Bruto_tabela *tabela); // Imprime a tabela
 
-void imprime_linhas(Tratado_tabela *tabela); // Imprime as linhas da tabela
+void imprime_linhas(Tratado_tabela *tabela_tratada); // Imprime as linhas da tabela
 
 
 #endif

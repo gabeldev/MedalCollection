@@ -5,6 +5,6 @@
 #include "structs.h"
 #include "cadastro.h"
 
-void Input_dados(Medalhas *dados_iniciais);
-
+void Input_dados(Medalhas *medalha);
+ 
 #endif
