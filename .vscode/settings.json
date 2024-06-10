@@ -9,6 +9,7 @@
         "binario.h": "c",
         "sstream": "c",
         "structs.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "dados.h": "c"
     }
 }

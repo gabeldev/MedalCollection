@@ -42,18 +42,23 @@ void inserir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Insere uma me
                 printf("Digite o tipo de medalha a ser adicionado: ");
                 setbuf(stdin, NULL);
                 scanf("%c", &tipo_medalha);
-                if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
+                if ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b')) {
                     printf("Tipo de medalha inválido\n");
                 }//if
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
+            } while ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b'));
             
             switch (tipo_medalha) { // Adiciona a medalha
+                case 'g':
                 case 'G':
                     tabela[i].ouro++;
                     break;
+                case 's':
                 case 'S':
                     tabela[i].prata++;
                     break;
+                case 'b':
                 case 'B':
                     tabela[i].bronze++;
                     break;
@@ -89,7 +94,7 @@ void listar_medalhas(Medalhas *medalha, Bruto_tabela *tabela) { // Lista as meda
             printf("Ano: %d\n", medalha[i].ano);
             printf("Tipo de Medalha: %c\n", medalha[i].gbs);
             printf("País de origem: %s\n", medalha[i].pais_origem);
-            printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
+            printf("Tempo de desempenho: %f\n", medalha[i].resultado.distancia);
             printf("Ouro: %d\n", tabela[i].ouro);
             printf("Prata: %d\n", tabela[i].prata);
             printf("Bronze: %d\n", tabela[i].bronze);

@@ -32,6 +32,7 @@ void Input_dados(Medalhas *medalha) {
         k++;
     }
 
+    
     for (int i = 0; i < k; i++) {
         strcpy(copia_para_resultados[i], medalha[i].armazena_resultado); // Copia o resultado para um buffer
     }
