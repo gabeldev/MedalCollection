@@ -141,7 +141,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
                     printf("Ouro: %d\n", tabela[i].ouro);
                     break;
                 case 'S':
@@ -152,7 +151,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
                     printf("Prata: %d\n", tabela[i].prata);
                     break;
                 case 'B':
@@ -163,7 +161,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
                     printf("Bronze: %d\n", tabela[i].bronze);
                     break;
                 }//switch
@@ -202,9 +199,16 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
                 }//if
             } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
             
+        do{
             printf("Digite a nova quantidade de medalhas: ");
             setbuf(stdin, NULL);
             scanf("%d", &altera_medalha);
+            if(altera_medalha < 0) {
+                printf("Quantidade inválida\n");
+                break;
+            }//if
+        } while(altera_medalha < 0);
+            
             
             switch (tipo_medalha) {
                 case 'G':
