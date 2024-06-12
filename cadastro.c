@@ -140,7 +140,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Modalidade: %s\n", medalha[i].modalidade);
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
-                    printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", tabela[i].pais);
                     printf("Ouro: %d\n", tabela[i].ouro);
                     break;
@@ -151,7 +150,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Modalidade: %s\n", medalha[i].modalidade);
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
-                    printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", tabela[i].pais);
                     printf("Prata: %d\n", tabela[i].prata);
                     break;
@@ -162,7 +160,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Modalidade: %s\n", medalha[i].modalidade);
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
-                    printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", tabela[i].pais);
                     printf("Bronze: %d\n", tabela[i].bronze);
                     break;
