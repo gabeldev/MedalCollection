@@ -210,7 +210,6 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
             scanf("%d", &altera_medalha);
             if(altera_medalha < 0) {
                 printf("Quantidade inválida\n");
-                break;
             }//if
         } while(altera_medalha < 0);
             
