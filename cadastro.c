@@ -320,7 +320,6 @@ void exportar_para_csv(Medalhas *medalha, Bruto_tabela *tabela) {
                     medalha[i].nome_atleta,
                     medalha[i].pais_origem,
                     medalha[i].armazena_resultado);
-            printf("%s\n", medalha[i].armazena_resultado);
         }//for
 
         // Escreve uma linha para cada medalha de prata
@@ -333,7 +332,6 @@ void exportar_para_csv(Medalhas *medalha, Bruto_tabela *tabela) {
                     medalha[i].nome_atleta,
                     medalha[i].pais_origem,
                     medalha[i].armazena_resultado);
-            printf("%s\n", medalha[i].armazena_resultado);
         }//for
 
         // Escreve uma linha para cada medalha de bronze
@@ -346,7 +344,6 @@ void exportar_para_csv(Medalhas *medalha, Bruto_tabela *tabela) {
                     medalha[i].nome_atleta,
                     medalha[i].pais_origem,
                     medalha[i].armazena_resultado);
-            printf("%s\n", medalha[i].armazena_resultado);
         }//for
     }//for
     fclose(file);
