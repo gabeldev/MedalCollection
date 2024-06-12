@@ -42,12 +42,12 @@ void inserir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Insere uma me
                 printf("Digite o tipo de medalha a ser adicionado: ");
                 setbuf(stdin, NULL);
                 scanf("%c", &tipo_medalha);
-                if ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
-                    (tipo_medalha != 'B'&& tipo_medalha != 'b')) {
+                if ((tipo_medalha != 'G' && tipo_medalha !='g') && (tipo_medalha != 'S' && tipo_medalha != 's') && 
+                    (tipo_medalha != 'B' && tipo_medalha != 'b')) {
                     printf("Tipo de medalha inválido\n");
                 }//if
-            } while ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
-                    (tipo_medalha != 'B'&& tipo_medalha != 'b'));
+            } while ((tipo_medalha != 'G' && tipo_medalha !='g') && (tipo_medalha != 'S' && tipo_medalha != 's') && 
+                    (tipo_medalha != 'B' && tipo_medalha != 'b'));
             
             switch (tipo_medalha) { // Adiciona a medalha
                 case 'g':
@@ -92,9 +92,7 @@ void listar_medalhas(Medalhas *medalha, Bruto_tabela *tabela) { // Lista as meda
             printf("Modalidade: %s\n", medalha[i].modalidade);
             printf("Cidade: %s\n", medalha[i].cidade);
             printf("Ano: %d\n", medalha[i].ano);
-            printf("Tipo de Medalha: %c\n", medalha[i].gbs);
-            printf("País de origem: %s\n", medalha[i].pais_origem);
-            printf("Tempo de desempenho: %f\n", medalha[i].resultado.distancia);
+            printf("País de origem: %s\n", tabela[i].pais);
             printf("Ouro: %d\n", tabela[i].ouro);
             printf("Prata: %d\n", tabela[i].prata);
             printf("Bronze: %d\n", tabela[i].bronze);
@@ -127,12 +125,15 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                 printf("Ouro - G, Prata - S, Bronze - B\n");
                 printf("Digite o tipo de medalha a ser pesquisado: ");
                 scanf("%c", &tipo_medalha);
-                if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
+                if ((tipo_medalha != 'G' && tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b')) {
                     printf("Tipo de medalha inválido\n");
                 }//if
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
+            } while ((tipo_medalha != 'G' && tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b'));
 
             switch (tipo_medalha) { // Mostra as medalhas
+                case 'g':
                 case 'G':
                     printf("Nome do atleta: %s\n", medalha[i].nome_atleta);
                     printf("Genero: %c\n", medalha[i].genero);
@@ -140,10 +141,10 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
-                    printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
+                    printf("País de origem: %s\n", tabela[i].pais);
                     printf("Ouro: %d\n", tabela[i].ouro);
                     break;
+                case 's':
                 case 'S':
                     printf("Nome do atleta: %s\n", medalha[i].nome_atleta);
                     printf("Genero: %c\n", medalha[i].genero);
@@ -152,9 +153,9 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
                     printf("Prata: %d\n", tabela[i].prata);
                     break;
+                case 'b':
                 case 'B':
                     printf("Nome do atleta: %s\n", medalha[i].nome_atleta);
                     printf("Genero: %c\n", medalha[i].genero);
@@ -163,7 +164,6 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
                     printf("País de origem: %s\n", medalha[i].pais_origem);
-                    printf("Tempo de desempenho: %s\n", medalha[i].resultado.tempo);
                     printf("Bronze: %d\n", tabela[i].bronze);
                     break;
                 }//switch
@@ -197,22 +197,27 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
                 printf("Ouro - G, Prata - S, Bronze - B\n");
                 printf("Digite o tipo de medalha a ser alterado: ");
                 scanf(" %c", &tipo_medalha);
-                if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
+                if ((tipo_medalha != 'G' && tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b')) {
                     printf("Tipo de medalha inválido\n");
                 }//if
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
+            } while ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b'));
             
             printf("Digite a nova quantidade de medalhas: ");
             setbuf(stdin, NULL);
             scanf("%d", &altera_medalha);
             
             switch (tipo_medalha) {
+                case 'g':
                 case 'G':
                     tabela[i].ouro = altera_medalha;
                     break;
+                case 's':
                 case 'S':
                     tabela[i].prata = altera_medalha;
                     break;
+                case 'b':
                 case 'B':
                     tabela[i].bronze = altera_medalha;
                     break;
@@ -248,12 +253,15 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
                 printf("Digite o tipo de medalha a ser excluído: ");
                 setbuf(stdin, NULL);
                 scanf(" %c", &tipo_medalha);
-                if (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B') {
-                    printf("Medalha excluída com sucesso!\n");
+                if ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b')) {
+                    printf("Tipo de medalha inválido\n");
                 }//if
-            } while (tipo_medalha != 'G' && tipo_medalha != 'S' && tipo_medalha != 'B');
+            } while ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
+                    (tipo_medalha != 'B'&& tipo_medalha != 'b'));
             
             switch (tipo_medalha) {
+                case 'g':
                 case 'G':
                     if (tabela[i].ouro > 0) {
                         tabela[i].ouro--;
@@ -262,6 +270,7 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
                         printf("Atleta não possui medalhas de ouro\n");
                     }//if else
                     break;
+                case 's':   
                 case 'S':
                     if (tabela[i].prata > 0) {
                         tabela[i].prata--;
@@ -270,6 +279,7 @@ void excluir_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Exclui uma me
                         printf("Atleta não possui medalhas de prata\n");
                     }//if else
                     break;
+                case 'b':  
                 case 'B':
                     if (tabela[i].bronze > 0) {
                         tabela[i].bronze--;
@@ -363,25 +373,25 @@ void menu(Medalhas *medalha, Bruto_tabela *tabela) {
 
         switch (opcao) {
             case 1:
-                inserir_medalha(medalha, tabela);
+                inserir_medalha(medalha, tabela); // Insere uma medalha
                 break;
             case 2:
-                listar_medalhas(medalha, tabela);
+                listar_medalhas(medalha, tabela); // Lista as medalhas
                 break;
             case 3:
-                pesquisar_medalha(medalha, tabela);
+                pesquisar_medalha(medalha, tabela); // Pesquisa uma medalha
                 break;
             case 4:
-                alterar_medalha(medalha, tabela);
+                alterar_medalha(medalha, tabela); // Altera uma medalha
                 break;
             case 5:
-                excluir_medalha(medalha, tabela);
+                excluir_medalha(medalha, tabela); // Exclui uma medalha
                 break;
             case 6:
-                exportar_para_csv(medalha, tabela);
+                exportar_para_csv(medalha, tabela); // Exporta os dados para um arquivo CSV
                 break;
             case 7:
-                imprime_tabela(tabela);
+                imprime_tabela(tabela); // Exibe a tabela de medalhas
                 break;
             case 8:
                 printf("Saindo...\n");
