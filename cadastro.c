@@ -204,9 +204,16 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
             } while ((tipo_medalha != 'G' &&tipo_medalha !='g') && (tipo_medalha != 'S'&& tipo_medalha != 's') && 
                     (tipo_medalha != 'B'&& tipo_medalha != 'b'));
             
+        do{
             printf("Digite a nova quantidade de medalhas: ");
             setbuf(stdin, NULL);
             scanf("%d", &altera_medalha);
+            if(altera_medalha < 0) {
+                printf("Quantidade inválida\n");
+                break;
+            }//if
+        } while(altera_medalha < 0);
+            
             
             switch (tipo_medalha) {
                 case 'g':
