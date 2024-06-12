@@ -152,7 +152,7 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
-                    printf("País de origem: %s\n", medalha[i].pais_origem);
+                    printf("País de origem: %s\n", tabela[i].pais);
                     printf("Prata: %d\n", tabela[i].prata);
                     break;
                 case 'b':
@@ -163,7 +163,7 @@ void pesquisar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Pesquisa as
                     printf("Cidade: %s\n", medalha[i].cidade);
                     printf("Ano: %d\n", medalha[i].ano);
                     printf("Tipo de Medalha: %c\n", medalha[i].gbs);
-                    printf("País de origem: %s\n", medalha[i].pais_origem);
+                    printf("País de origem: %s\n", tabela[i].pais);
                     printf("Bronze: %d\n", tabela[i].bronze);
                     break;
                 }//switch
@@ -206,7 +206,6 @@ void alterar_medalha(Medalhas *medalha, Bruto_tabela *tabela) { // Altera uma me
             
         do{
             printf("Digite a nova quantidade de medalhas: ");
-            setbuf(stdin, NULL);
             scanf("%d", &altera_medalha);
             if(altera_medalha < 0) {
                 printf("Quantidade inválida\n");
