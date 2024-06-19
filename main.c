@@ -30,7 +30,7 @@ int main () {
         converte_tabela(tabela, dados_iniciais);
     }//if else
 
-    menu(dados_iniciais, tabela);
+    //menu(dados_iniciais, tabela);
 
     // Inicializa a interface gráfica GTK
     gtk_initialize(0, NULL, dados_iniciais, tabela);

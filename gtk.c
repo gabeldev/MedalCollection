@@ -9,39 +9,33 @@
 
 // Funções de callback para os botões GTK
 static void on_insert_medal_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    inserir_medalha(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    inserir_medalha(app_data->medalhas, app_data->tabela);
 }
 
 static void on_list_medals_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    listar_medalhas(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    listar_medalhas(app_data->medalhas, app_data->tabela);
 }
 
 static void on_search_medal_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    pesquisar_medalha(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    pesquisar_medalha(app_data->medalhas, app_data->tabela);
 }
 
 static void on_update_medal_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    alterar_medalha(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    alterar_medalha(app_data->medalhas, app_data->tabela);
 }
 
 static void on_delete_medal_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    excluir_medalha(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    excluir_medalha(app_data->medalhas, app_data->tabela);
 }
 
 static void on_export_to_csv_clicked(GtkWidget *widget, gpointer data) {
-    Medalhas *medalha = (Medalhas *)data;
-    Bruto_tabela *tabela = (Bruto_tabela *)data;
-    exportar_para_csv(medalha, tabela);
+    AppData *app_data = (AppData *)data;
+    exportar_para_csv(app_data->medalhas, app_data->tabela);
 }
 
 static void on_exit_clicked(GtkWidget *widget, gpointer data) {
@@ -50,6 +44,8 @@ static void on_exit_clicked(GtkWidget *widget, gpointer data) {
 
 // Função para inicializar a interface gráfica GTK
 void gtk_initialize(int argc, char *argv[], Medalhas *medalhas, Bruto_tabela *tabela) {
+    AppData app_data = {medalhas, tabela};
+
     GtkWidget *window;
     GtkWidget *grid;
     GtkWidget *insert_button, *list_button, *search_button, *update_button, *delete_button, *export_button, *exit_button;
@@ -81,12 +77,12 @@ void gtk_initialize(int argc, char *argv[], Medalhas *medalhas, Bruto_tabela *ta
     gtk_grid_attach(GTK_GRID(grid), exit_button, 0, 6, 1, 1);
 
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    g_signal_connect(insert_button, "clicked", G_CALLBACK(on_insert_medal_clicked), medalhas);
-    g_signal_connect(list_button, "clicked", G_CALLBACK(on_list_medals_clicked), medalhas);
-    g_signal_connect(search_button, "clicked", G_CALLBACK(on_search_medal_clicked), medalhas);
-    g_signal_connect(update_button, "clicked", G_CALLBACK(on_update_medal_clicked), medalhas);
-    g_signal_connect(delete_button, "clicked", G_CALLBACK(on_delete_medal_clicked), medalhas);
-    g_signal_connect(export_button, "clicked", G_CALLBACK(on_export_to_csv_clicked), medalhas);
+    g_signal_connect(insert_button, "clicked", G_CALLBACK(on_insert_medal_clicked), &app_data);
+    g_signal_connect(list_button, "clicked", G_CALLBACK(on_list_medals_clicked), &app_data);
+    g_signal_connect(search_button, "clicked", G_CALLBACK(on_search_medal_clicked), &app_data);
+    g_signal_connect(update_button, "clicked", G_CALLBACK(on_update_medal_clicked), &app_data);
+    g_signal_connect(delete_button, "clicked", G_CALLBACK(on_delete_medal_clicked), &app_data);
+    g_signal_connect(export_button, "clicked", G_CALLBACK(on_export_to_csv_clicked), &app_data);
     g_signal_connect(exit_button, "clicked", G_CALLBACK(on_exit_clicked), NULL);
 
     gtk_widget_show_all(window);
