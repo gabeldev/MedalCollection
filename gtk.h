@@ -1,6 +1,6 @@
 #ifndef GTK_H
 #define GTK_H
-
+#include <gst/gst.h>
 #include <gtk/gtk.h>
 #include "structs.h"
 #include "cadastro.h"
