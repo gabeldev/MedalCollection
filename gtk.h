@@ -13,6 +13,7 @@ typedef struct {
     Bruto_tabela *tabela;
 } AppData;
 
+
 void gtk_initialize(int argc, char *argv[], Medalhas *medalhas, Bruto_tabela *tabela);
 
 #endif // GTK_INTERFACE_H

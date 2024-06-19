@@ -48,6 +48,4 @@ typedef struct{
     Resultado resultado;
 }Medalhas;
 
-
-
 #endif

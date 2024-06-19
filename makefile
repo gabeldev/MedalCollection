@@ -1,12 +1,39 @@
-# Comentário do makefile de exemplo
-main: main.o
-	@echo "Gerando arquivo executável"
-	gcc *.o -o main
-main.o: main.c
-	@echo "Compilando e gerando os objetos"
-	gcc -c *.c
+# Nome do executável
+TARGET = MedalCollection
+
+# Compilador
+CC = gcc
+
+# Flags de compilação
+CFLAGS = `pkg-config --cflags gtk+-3.0 gstreamer-1.0` -Wall -g
+
+# Bibliotecas necessárias
+LIBS = `pkg-config --libs gtk+-3.0 gstreamer-1.0`
+
+# Arquivos fontes
+SRCS = $(wildcard *.c)
+
+# Arquivos objetos
+OBJS = $(SRCS:.c=.o)
+
+# Regra padrão
+all: $(TARGET)
+
+# Regra para construir o executável
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^ $(LIBS)
+
+# Regra para compilar arquivos .c em .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Regra para executar o programa
+run: $(TARGET)
+	./$(TARGET)
+
+# Limpeza dos arquivos objetos e executável
 clean:
-	@echo "Apagando objetos e executáveis antigos..."
-	rm -f *.o main
-run:
-	./main
+	rm -f $(OBJS) $(TARGET)
+
+# Phony targets (não correspondem a arquivos reais)
+.PHONY: all clean run
